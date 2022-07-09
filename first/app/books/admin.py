@@ -51,6 +51,7 @@ class AuthorAdmin(admin.ModelAdmin):
         BooksInAuthor,
     ]
 
+
 admin.site.register(Book, BooksAdmin)
 admin.site.register(PublishingHouse, PublishingHouseAdmin)
 admin.site.register(Author, AuthorAdmin)

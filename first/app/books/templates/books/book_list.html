@@ -71,7 +71,7 @@
                         <div class="col-xl-3 col-lg-3">
                             <div class="logo">
                                 <a href="index.html">
-                                    <img src="img/logo.png" alt="">
+                                    <img src="{% static 'img/logo.png' %}" alt="">
                                 </a>
                             </div>
                         </div>
@@ -79,7 +79,7 @@
                             <div class="main-menu  d-none d-lg-block">
                                 <nav>
                                     <ul id="navigation">
-                                        <li><a  href="index.html">home</a></li>
+                                        <li><a href="index.html">home</a></li>
                                         <li><a href="about.html">about</a></li>
                                         <li><a href="#">blog <i class="ti-angle-down"></i></a>
                                             <ul class="submenu">
@@ -129,9 +129,9 @@
                          </div>
                          <div class="service_content text-center">
                              <a href="{{ book.pk }}">
-                            <h3>{{ book.book_name }}</h3>
+                             <h3>{{ book.book_name }}</h3>
                              <h4>{{ book.date_creation|date:'o' }}г.</h4>
-                                 </a>
+                             </a>
                              {% for a in book.author.all %}
                                 <p>{{ a }}</p>
                              {% endfor %}
@@ -195,7 +195,7 @@
                         <div class="footer_widget">
                             <div class="footer_logo">
                                 <a href="#">
-                                    <img src="img/logo.png" alt="">
+                                    <img src="{% static 'img/logo.png' %}" alt="">
                                 </a>
                             </div>
                             <p class="address_text">239 E 5th St, New York 
@@ -249,53 +249,53 @@
     <!-- footer_end  -->
 
 
-    <!-- JS here -->
-    <script src="js/vendor/modernizr-3.5.0.min.js"></script>
-    <script src="js/vendor/jquery-1.12.4.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/owl.carousel.min.js"></script>
-    <script src="js/isotope.pkgd.min.js"></script>
-    <script src="js/ajax-form.js"></script>
-    <script src="js/waypoints.min.js"></script>
-    <script src="js/jquery.counterup.min.js"></script>
-    <script src="js/imagesloaded.pkgd.min.js"></script>
-    <script src="js/scrollIt.js"></script>
-    <script src="js/jquery.scrollUp.min.js"></script>
-    <script src="js/wow.min.js"></script>
-    <script src="js/nice-select.min.js"></script>
-    <script src="js/jquery.slicknav.min.js"></script>
-    <script src="js/jquery.magnific-popup.min.js"></script>
-    <script src="js/plugins.js"></script>
-    <script src="js/gijgo.min.js"></script>
+<!--    &lt;!&ndash; JS here &ndash;&gt;-->
+<!--    <script src="{% static 'books/js/vendor/modernizr-3.5.0.min.js' %}"></script>-->
+<!--    <script src="{% static 'books/js/vendor/jquery-1.12.4.min.js' %}"></script>-->
+<!--    <script src="{% static 'books/js/popper.min.js' %}"></script>-->
+<!--    <script src="{% static 'books/js/bootstrap.min.js' %}"></script>-->
+<!--    <script src="{% static 'books/js/owl.carousel.min.js' %}"></script>-->
+<!--    <script src="{% static 'books/js/isotope.pkgd.min.js' %}"></script>-->
+<!--    <script src="{% static 'books/js/ajax-form.js' %}"></script>-->
+<!--    <script src="{% static 'books/js/waypoints.min.js' %}"></script>-->
+<!--    <script src="{% static 'books/js/jquery.counterup.min.js' %}"></script>-->
+<!--    <script src="{% static 'books/js/imagesloaded.pkgd.min.js' %}"></script>-->
+<!--    <script src="{% static 'books/js/scrollIt.js' %}"></script>-->
+<!--    <script src="{% static 'books/js/jquery.scrollUp.min.js' %}"></script>-->
+<!--    <script src="{% static 'books/js/wow.min.js' %}"></script>-->
+<!--    <script src="{% static 'books/js/nice-select.min.js' %}"></script>-->
+<!--    <script src="{% static 'books/js/jquery.slicknav.min.js' %}"></script>-->
+<!--    <script src="{% static 'books/js/jquery.magnific-popup.min.js' %}"></script>-->
+<!--    <script src="{% static 'books/js/plugins.js' %}"></script>-->
+<!--    <script src="{% static 'books/js/gijgo.min.js' %}"></script>-->
 
-    <!--contact js-->
-    <script src="js/contact.js"></script>
-    <script src="js/jquery.ajaxchimp.min.js"></script>
-    <script src="js/jquery.form.js"></script>
-    <script src="js/jquery.validate.min.js"></script>
-    <script src="js/mail-script.js"></script>
+<!--    &lt;!&ndash;contact js&ndash;&gt;-->
+<!--    <script src="{% static 'books/js/contact.js' %}"></script>-->
+<!--    <script src="{% static 'books/js/jquery.ajaxchimp.min.js' %}"></script>-->
+<!--    <script src="{% static 'books/js/jquery.form.js' %}"></script>-->
+<!--    <script src="{% static 'books/js/jquery.validate.min.js' %}"></script>-->
+<!--    <script src="{% static 'books/js/mail-script.js' %}"></script>-->
 
-    <script src="js/main.js"></script>
-    <script>
-        $('#datepicker').datepicker({
-            iconsLibrary: 'fontawesome',
-            disableDaysOfWeek: [0, 0],
-        //     icons: {
-        //      rightIcon: '<span class="fa fa-caret-down"></span>'
-        //  }
-        });
-        $('#datepicker2').datepicker({
-            iconsLibrary: 'fontawesome',
-            icons: {
-             rightIcon: '<span class="fa fa-caret-down"></span>'
-         }
+<!--    <script src="{% static 'books/js/main.js' %}"></script>-->
+<!--    <script>-->
+<!--        $('#datepicker').datepicker({-->
+<!--            iconsLibrary: 'fontawesome',-->
+<!--            disableDaysOfWeek: [0, 0],-->
+<!--        //     icons: {-->
+<!--        //      rightIcon: '<span class="fa fa-caret-down"></span>'-->
+<!--        //  }-->
+<!--        });-->
+<!--        $('#datepicker2').datepicker({-->
+<!--            iconsLibrary: 'fontawesome',-->
+<!--            icons: {-->
+<!--             rightIcon: '<span class="fa fa-caret-down"></span>'-->
+<!--         }-->
 
-        });
-        var timepicker = $('#timepicker').timepicker({
-         format: 'HH.MM'
-     });
-    </script>
+<!--        });-->
+<!--        var timepicker = $('#timepicker').timepicker({-->
+<!--         format: 'HH.MM'-->
+<!--     });-->
+<!--    </script>-->
 </body>
 
 </html>

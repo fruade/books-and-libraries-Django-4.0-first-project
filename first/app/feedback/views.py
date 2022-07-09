@@ -22,6 +22,7 @@ class FeedBackView(FormView):
         feed.save()
         return super(FeedBackView, self).form_valid(form)
 
+
 def get_feedback(request):
     if request.method == 'POST':
         form = FeedBackForm(request.POST)
