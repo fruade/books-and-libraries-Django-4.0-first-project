@@ -17,4 +17,4 @@ def library_start(request):
     context = {
         'libraries': libraries,
     }
-    return render(request, 'library/index.html', context=context)
+    return render(request, 'library/book_list.html', context=context)

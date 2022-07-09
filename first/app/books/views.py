@@ -1,9 +1,20 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, Http404
+from django.views.generic import ListView, DetailView
 from django.shortcuts import render
 from .models import Book, PublishingHouse, Author
+from django.core.exceptions import ObjectDoesNotExist
+
+class BookList(ListView):
+    #model = Book
+    template_name = 'book_list.html'
+    queryset = Book.objects.all()
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['books'] = self.queryset
+        return context
 
 
-def get_books_list(request):
     # books = Book.objects.all().values('book_name',
     #                               'id_publishing_house__publishing_house_name',
     #                               'id_publishing_house__address',
@@ -11,23 +22,24 @@ def get_books_list(request):
     #                               'author__last_name',
     #                               'author__country')
 
-    # books = Book.objects.all().values('book_name', 'date_creation', 'description',
-    #                                   'id_publishing_house__publishing_house_name',
-    #                                   'id_publishing_house__address',
-    #                                   'id_publishing_house__contact_phone',
-    #                                   'id_publishing_house__email',
-    #                                   'id_publishing_house__website_link'
-    #                                   )
-    books = Book.objects.all()
-    context = {
-        'books': books,
-        'sale': False,
-    }
-
-    # return render(requests, 'books/list_books.html', context)
-    return render(request, 'books/index.html', context)
+    # books = Book.objects.all()
+    # context = {
+    #     'books': books,
+    #     'sale': False,
+    # }
+    #
+    # # return render(requests, 'books/list_books.html', context)
+    # return render(request, 'books/book_list.html', context)
 
 
-def get_books_id(request, id_book):
-    books = Book.objects.get(id=id_book)
-    return books
+class BookInfo(DetailView):
+    template_name = 'books/book_info.html'
+    model = Book
+    pk_url_kwarg = 'pk'
+    context_object_name = 'book_details'
+
+
+
+
+
+

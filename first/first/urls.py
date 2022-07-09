@@ -22,6 +22,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('books/', include('app.books.urls')),
     path('library/', include('app.library.urls')),
+    path('feedback/', include('app.feedback.urls')),
 ]
 
 if settings.DEBUG:

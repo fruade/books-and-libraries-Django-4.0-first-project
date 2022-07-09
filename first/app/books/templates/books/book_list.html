@@ -128,8 +128,10 @@
                              <img src="/media/{{ book.book_img }}" class="mx-auto d-block" alt="{{book.book_name}}" style="height: 300px; width: 200px;">
                          </div>
                          <div class="service_content text-center">
+                             <a href="{{ book.pk }}">
                             <h3>{{ book.book_name }}</h3>
                              <h4>{{ book.date_creation|date:'o' }}г.</h4>
+                                 </a>
                              {% for a in book.author.all %}
                                 <p>{{ a }}</p>
                              {% endfor %}

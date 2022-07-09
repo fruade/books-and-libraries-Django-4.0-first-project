@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h2>{{ book_details.book_name }}, {{ book_details.date_creation|date:'o' }}г.</h2>
+    {% for a in book_details.author.all %}
+        <h3>{{ a }}</h3>
+    {% endfor %}
+    <p>{{ object.description }}</p>
+    <h2>Издательство "{{ object.id_publishing_house }}"</h2>
+    <h3>Контактная информация:</h3>
+    <p>{{ object.id_publishing_house.address }}</p>
+    <p>{{ object.id_publishing_house.contact_phone }}</p>
+    <p>{{ object.id_publishing_house.email }}</p>
+    <p>{{ object.id_publishing_house.website_link }}</p>
+</body>
+</html>
