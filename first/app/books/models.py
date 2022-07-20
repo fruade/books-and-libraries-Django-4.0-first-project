@@ -20,6 +20,8 @@ class Book(models.Model):
     book_img = models.ImageField(upload_to='media/%Y/%m/%d',
                                  verbose_name='Ссылка на изображение', blank=True, null=True)
 
+
+
     def __str__(self):
         return self.book_name
 

@@ -1,0 +1,19 @@
+{% load static %}
+
+{% include "inc/_inc.html" %}
+
+{% include "inc/_header.html" %}
+{% block add_book %}
+    <form action="add_book" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <div class="form-error">{{ form.non_field_errors }}</div>
+        {% for i in form %}
+            <p><label class="form-label" for="{{ i.id_for_label }}">{{ i.label }}: </label>{{ i }}</p>
+            <div class="form-error">{{ i.errors }}</div>
+        {% endfor %}
+        <button type="submit">Создать</button>
+    </form>
+{% endblock %}
+
+{% include "inc/_footer.html" %}
