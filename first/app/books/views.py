@@ -8,7 +8,7 @@ from app.books.forms import BookForm
 from app.books.filters import BooksFilter
 from django_filters.views import FilterView
 from django.urls import reverse_lazy
-from app.books.validators import validation_book_name
+
 
 
 class BookFormView(CreateView):

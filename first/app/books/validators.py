@@ -7,3 +7,7 @@ def validation_book_name(value: str):
     #if value.split()[0].istitle() or value[0].isdigit():
         return value
     raise ValidationError(message='Таких книг не существует, попробуй еще!')
+
+
+
+
