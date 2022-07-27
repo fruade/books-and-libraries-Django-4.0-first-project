@@ -4,19 +4,16 @@
 
 {% include "inc/_header.html" %}
 
-    <div>
-            <form action="" method="GET" enctype='multipart/form-data'>
-                {% csrf_token %}
-                {% if user.is_authenticated %}
-                    {{ filter.form.as_p }}
-                <input type="submit" />
-                {% endif %}
-
-            </form>
-        </div>
         <!-- service_area_start  -->
-        <div class="service_area">
+
             <div class="container">
+                <form action="" method="GET" enctype='multipart/form-data'>
+                    {% csrf_token %}
+                    {% if user.is_authenticated %}
+                        {{ filter.form.as_p }}
+                    <input type="submit" />
+                    {% endif %}
+                </form>
                 <div class="row justify-content-center ">
                     <div class="col-lg-7 col-md-10">
                         <div class="section_title text-center mb-95">
@@ -26,7 +23,7 @@
                     </div>
                 </div>
                 <div class="row justify-content-center">
-                    {% for book in books %}
+                    {% for book in page_obj %}
                     <div class="col-lg-4 col-md-6">
                         <div class="single_service">
                              <div>
@@ -44,9 +41,26 @@
                         </div>
                     </div>
                     {% endfor %}
-                        </div>
+            <div class="pagination">
+                <span class="step-links">
+                    {% if page_obj.has_previous %}
+                        <a href="?page=1">&laquo; first</a>
+                        <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+                    {% endif %}
+
+                    <span class="current">
+                        Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                    </span>
+
+                    {% if page_obj.has_next %}
+                        <a href="?page={{ page_obj.next_page_number }}">next</a>
+                        <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+                    {% endif %}
+                </span>
             </div>
-        </div>
+                </div>
+            </div>
+
 
 {% include "inc/_footer.html" %}
 

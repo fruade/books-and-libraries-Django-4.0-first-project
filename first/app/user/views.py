@@ -6,6 +6,7 @@ from app.user.forms import RegistrationForm, LoginForm
 from django.contrib import auth
 from django.http import HttpResponseRedirect
 
+
 def create_user(request):
     if request.method == 'POST':
         form = RegistrationForm(request.POST)

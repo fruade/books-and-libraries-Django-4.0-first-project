@@ -1,13 +1,19 @@
 from django.http import HttpResponse
-from django.views.generic import ListView, DetailView
+from django.urls import reverse_lazy
+from django.views.generic import ListView, DetailView, CreateView
 from django.shortcuts import render
-from .models import Subscription, Library, Reader
+from app.library.models import Subscription, Library, Reader
 from django.db import models
+from app.library.forms import LibraryForm
+from django_filters.views import FilterView
+from app.library.filters import LibraryFilter
 
 
-class LibraryList(ListView):
+class LibraryList(FilterView):
+    paginate_by = 2
     model = Library
-    template_name = 'library_list.html'
+    template_name = 'library/library_list.html'
+    filterset_class = LibraryFilter
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -20,6 +26,12 @@ class LibraryInfo(DetailView):
     model = Library
     pk_url_kwarg = 'pk'
     context_object_name = 'library_details'
+
+
+class LibraryFormView(CreateView):
+    form_class = LibraryForm
+    template_name = 'library/add_library.html'
+    success_url = reverse_lazy('libraries')
 
 
 # def library_start(request):

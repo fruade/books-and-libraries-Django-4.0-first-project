@@ -6,6 +6,7 @@ class FeedBackForm(forms.Form):
         'min_lenght': 'Слишком мало символов',
         'required': 'Укажите хотя бы 2 символа'
     })
-    surname = forms.CharField()
+    surname = forms.CharField(label='Фамилия', max_length=16, min_length=2)
+    email = forms.EmailField(label='Email')
     rating = forms.IntegerField(label='Ваша оценка', max_value=10, min_value=1)
-    feedback = forms.CharField(widget=forms.Textarea(attrs={'rows': 2, 'cols': 20}))
+    feedback = forms.CharField(widget=forms.Textarea(attrs={'rows': 4, 'cols': 30}), label='Отзыв')

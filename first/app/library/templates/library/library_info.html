@@ -1,14 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% load static %}
+{% include "inc/_inc.html" %}
+{% include "inc/_header.html" %}
+
     <h2>{{ library_details.library_name }}</h2>
     <h4>Количество читателей: {{ library_details.readers.all|length }}</h4>
     <h3>Контактная информация:</h3>
     <p>{{ library_details.address }}, тел. {{ library_details.contact_phone }}</p>
     <a href="{{ library_details.website_link }}">{{ library_details.website_link }}</a>
-</body>
-</html>
+
+{% include "inc/_footer.html" %}

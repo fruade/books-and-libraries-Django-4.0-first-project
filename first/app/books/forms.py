@@ -2,9 +2,11 @@ from django import forms
 from django.contrib.auth.models import User
 from django.contrib.admin import widgets
 from app.books.models import Book, Author, PublishingHouse
+from app.books.validators import validation_book_name
 
 
 class BookForm(forms.ModelForm):
+    book_name = forms.CharField(label='Название книги', validators=[validation_book_name])
     # author_query = Author.objects.all()
     # author_array = (
     #     [author.id, author] for author in author_query

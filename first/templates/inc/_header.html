@@ -14,7 +14,7 @@
                                 <div class="short_contact_list">
                                     <ul>
                                         <li><a href="#">+880 4664 216</a></li>
-                                        <li><a href="#">Mon - Sat 10:00 - 7:00</a></li>
+                                        <li><a href="#">Mon - Sat 08:00 - 18:00</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -42,18 +42,28 @@
                         <div class="row align-items-center">
                             <div class="col-xl-3 col-lg-3">
                                 <div class="logo">
-                                    <a href="index.html">
-                                        <img src="{% static 'img/logo.png' %}" alt="">
-                                    </a>
+                                        {% if request.path|slice:'6' == '/books' %}
+                                        <img src="{% static 'img/logo.png' %}" width='150' height='150' alt="">
+                                        {% elif request.path|slice:'10' == '/libraries' %}
+                                        <img src="{% static 'img/library-logo.jpg' %}" width='150' height='150' alt="">
+                                        {% endif %}
                                 </div>
                             </div>
                             <div class="col-xl-9 col-lg-9">
                                 <div class="main-menu  d-none d-lg-block">
                                     <nav>
                                         <ul id="navigation">
-                                            <li><a href="{% url 'books' %}">Главная</a></li>
+                                            {% if request.path|slice:'6' == '/books' %}
+                                                <li><a href="{% url 'books' %}">Главная</a></li>
+                                            {% elif request.path|slice:'10' == '/libraries' %}
+                                                <li><a href="{% url 'libraries' %}">Главная</a></li>
+                                            {% endif %}
                                             {% if user.is_authenticated %}
-                                                <li><a href="{% url 'add_book' %}">Добавить книгу</a></li>
+                                                {% if request.path|slice:'6' == '/books' %}
+                                                    <li><a href="{% url 'add_book' %}">Добавить книгу</a></li>
+                                                {% elif request.path|slice:'10' == '/libraries' %}
+                                                    <li><a href="{% url 'add_library' %}">Добавить библиотеку</a></li>
+                                                {% endif %}
                                                 <li><a href="{% url 'logout' %}">Выйти</a></li>
                                             {% else %}
                                             <li><a href="{% url 'login' %}">Личный кабинет</a></li>

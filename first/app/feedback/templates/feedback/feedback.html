@@ -1,10 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% load static %}
+
+{% include "inc/_inc.html" %}
+
+{% include "inc/_header.html" %}
+
     <h2>Оставьте отзыв</h2>
     <form method="post">
         {% csrf_token %}
@@ -13,9 +12,10 @@
                 {{ field.label_tag }}
                 {{ field.errors }}
                 {{ field }}
+                <p></p>
             </div>
         {% endfor %}
         <button type="submit">Отправить</button>
     </form>
-</body>
-</html>
+
+{% include "inc/_footer.html" %}
